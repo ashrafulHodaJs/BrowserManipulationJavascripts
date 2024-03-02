@@ -1,0 +1,13 @@
+Set WshShell = CreateObject("WScript.Shell")
+
+' Run the command to start the local web server using Python
+WshShell.Run "cmd /c python3 -m http.server --bind 192.168.1.9", 0, True
+
+' Minimize the command prompt window
+WshShell.AppActivate "Command Prompt"
+WScript.Sleep 1000 ' Wait for 1 second to ensure the window is activated before sending keys
+WshShell.SendKeys "% ", 0 ' Send Alt + Space to open the window menu
+WScript.Sleep 100 ' Wait for a short duration
+WshShell.SendKeys "n", 0 ' Send 'n' to minimize the window
+
+Set WshShell = Nothing
