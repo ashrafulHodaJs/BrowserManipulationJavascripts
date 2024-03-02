@@ -1,0 +1,13 @@
+Set WshShell = CreateObject("WScript.Shell")
+
+' Function to stop the Python server by killing the process
+Sub StopPythonServer()
+    WshShell.Run "cmd /c Taskkill /F /IM python.exe", 0, True
+End Sub
+
+' Example of how to call the function to stop the Python server
+' Uncomment the line below to stop the server after a certain duration
+' WScript.Sleep 5000 ' Wait for 5 seconds
+' StopPythonServer()
+
+Set WshShell = Nothing
